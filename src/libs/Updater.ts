@@ -55,7 +55,7 @@ export function updateScript(path: string, repo: string, configPath: string): bo
         },
         CONFIG_ID
     );
-    const currentVersion = config.updater[scriptName].version;
+    const currentVersion = config[scriptName].version;
     if (currentVersion === latestVersion) return;
 
     const asset = latestRelease.assets.find((asset) => asset.name === scriptFile);
