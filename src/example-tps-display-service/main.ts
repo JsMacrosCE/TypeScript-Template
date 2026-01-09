@@ -1,5 +1,5 @@
 import { updateScript } from '../libs/Updater';
-updateScript(file.getAbsolutePath(), 'EastArctica/JSMacros-Scripts', './config/EastArctica-scripts.json');
+updateScript(file.getAbsolutePath(), 'JsMacrosCE/TypeScript-Template', './config/YourUsername-scripts.json');
 
 // services start with minecraft, when enabled and are meant to be persistent scripts.
 JsMacros.assertEvent(event, 'Service');

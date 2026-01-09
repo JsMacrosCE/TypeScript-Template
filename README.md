@@ -1,25 +1,25 @@
-# JSMacros-Scripts Template
+# JsMacrosCE TypeScript Template
 
-This is a template for compiling, bundling, and allowing automatic updates for [JsMacros](https://github.com/JsMacros/JsMacros) scripts.
+This is a template for compiling, bundling, and allowing automatic updates for [JsMacrosCE](https://github.com/JsMacrosCE/JsMacros) scripts.
 
 **Key Features:**
 
-- **Dependency Bundling:** Uses rspack to bundle external libraries and your script code into a single `.js` file. This allows you to utilize any [GraalJS](https://github.com/oracle/graaljs) compliant packages whether custom or from a package registry like npm within your JsMacros scripts (any package that doesn't rely on browser specific globals or APIs such as `window` or Node specific globals or APIs such as `process`).
+- **Dependency Bundling:** Uses rspack to bundle external libraries and your script code into a single `.js` file. This allows you to utilize any [GraalJS](https://github.com/oracle/graaljs) compliant packages whether custom or from a package registry like npm within your JsMacrosCE scripts (any package that doesn't rely on browser specific globals or APIs such as `window` or Node specific globals or APIs such as `process`).
 - **Multi-File Script Development:** Organize your code into multiple files for better maintainability and project structure. rspack will handle bundling them together.
 - **Automatic Updates:** Integrates the `Updater` library to provide a seamless automatic update mechanism for your users. This ensures users are always running the latest version of your scripts.
 
 ## Getting Started
 
-This template is designed to get you up and running quickly. Follow these steps to create your own JsMacros-scripts repository:
+This template is designed to get you up and running quickly. Follow these steps to create your own JsMacrosCE-scripts repository:
 
 1. **Create a template of the repository:**
     - Use the green `Use this template` button then `Create a new repository`.
-    - Name your repository as you see fit (`JsMacros-Scripts` is a nice simple name)
+    - Name your repository as you see fit (`JsMacrosCE-Scripts` is a nice simple name)
     - Keep the project public, otherwise the `Updater` library will not work without changes.
 2. **Clone the repository:**
     ```bash
-    git clone https://github.com/YourUsername/JsMacros-Scripts
-    cd JsMacros-Scripts
+    git clone https://github.com/YourUsername/JsMacrosCE-Scripts
+    cd JsMacrosCE-Scripts
     ```
 3. **Install dependencies:**
    This template uses [pnpm](https://pnpm.io/) as it's package manager. You can find installation instructions [here](https://pnpm.io/installation).
@@ -44,7 +44,7 @@ There are a few things to know before you write your first script.
 ```ts
 import { updateScript } from '../libs/Updater';
 // Currently, this method does *not* restart the script. Meaning that the old script will still be running until the next execution.
-updateScript(file.getAbsolutePath(), 'EastArctica/JSMacros-Scripts', './config/EastArctica-scripts.json');
+updateScript(file.getAbsolutePath(), 'YourUsername/JsMacrosCE-Scripts', './config/YourUsername-scripts.json');
 
 // Your code here
 
@@ -66,7 +66,7 @@ export default event;
 ```
 
 3. Run either `pnpm build` or `pnpm watch` to respectively build once, or watch the files for updates and build on changes.
-4. Your output js files should now be in the `dist/` directory at `dist/folder-name.js` and can be run within JsMacros
+4. Your output js files should now be in the `dist/` directory at `dist/folder-name.js` and can be run within JsMacrosCE
 
 ## Creating your first release
 
@@ -97,12 +97,12 @@ If any errors occur during while checking for an update, they are logged to chat
 ```ts
 import { updateScript } from '../libs/Updater';
 // Currently, this method does *not* restart the script. Meaning that the old script will still be running until the next execution.
-updateScript(file.getAbsolutePath(), 'EastArctica/JSMacros-Scripts', './config/EastArctica-scripts.json');
+updateScript(file.getAbsolutePath(), 'YourUsername/JsMacrosCE-Scripts', './config/EastArctica-scripts.json');
 ```
 
 ## Config Library
 
-In `src/libs/Config.ts`, the `Config` class is exposed which provides a convenient way to manage JSON config files for your JsMacros scripts. It handles reading, writing, and creating default configs. The intent of this is to have one JSON file to manage the config for all your scripts. Rather than having a different config file for each script, this approach maintains a shared config per developer instead.
+In `src/libs/Config.ts`, the `Config` class is exposed which provides a convenient way to manage JSON config files for your JsMacrosCE scripts. It handles reading, writing, and creating default configs. The intent of this is to have one JSON file to manage the config for all your scripts. Rather than having a different config file for each script, this approach maintains a shared config per developer instead.
 
 ### Key Features
 
