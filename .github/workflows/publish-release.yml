@@ -32,10 +32,6 @@ jobs:
             - name: Install dependencies
               run: pnpm install
 
-            - name: Lint
-              run: pnpm lint
-              continue-on-error: true
-
             - name: Build
               run: pnpm build
 
