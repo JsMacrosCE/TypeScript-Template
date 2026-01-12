@@ -48,8 +48,8 @@ function isPlainObject(item: any): item is object {
     return Object.prototype.toString.call(item) === '[object Object]';
 }
 
-export default class Config {
-    public static readConfig<T extends object>(path: string, defaultConfig: T, id: string): T {
+namespace Config {
+    export function readConfig<T extends object>(path: string, defaultConfig: T, id: string): T {
         let rootConfig: { [key: string]: any } = {};
 
         if (FS.exists(path)) {
@@ -87,7 +87,7 @@ export default class Config {
         return merge({}, defaultConfig, rootConfig[id] || {});
     }
 
-    public static writeConfig(path: string, config: object, id: string): void {
+    export function writeConfig(path: string, config: object, id: string): void {
         let rootConfig: { [key: string]: any } = {};
 
         if (FS.exists(path)) {
@@ -120,3 +120,5 @@ export default class Config {
         FS.open(path).write(JSON.stringify(rootConfig, null, 4));
     }
 }
+
+export { Config as default };

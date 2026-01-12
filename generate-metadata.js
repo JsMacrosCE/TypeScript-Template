@@ -1,9 +1,9 @@
-const fs = require('fs');
+const fs = require('node:fs');
 
 const metadata = {};
 const srcDir = fs.readdirSync('./src');
 for (const entry of srcDir) {
-    let files = fs.readdirSync(`./src/${entry}`);
+    const files = fs.readdirSync(`./src/${entry}`);
     console.log(entry, files);
     if (!files.includes('metadata.json') || !files.includes('main.ts')) {
         continue;

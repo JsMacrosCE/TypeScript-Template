@@ -1,156 +1,153 @@
-
 // InputUtil
 //@Custom
-type Key = string
-| 'key.mouse.3'
-| 'key.mouse.4'
+type Key = string | 'key.mouse.3' | 'key.mouse.4';
 
 // option.allKeys.map(getTranslationKey())
 //@Eval Java.from(Client.getGameOptions().getRaw().field_1839).map(k => k.method_1431())
-type Bind = string
+type Bind = string;
 //@Eval RegistryManager.method_30530(RegistryKeys.field_41236).method_10235().toArray().map(id => id.toString())
-type Biome = string
+type Biome = string;
 //@RegistryHelper getItemIds
-type ItemId = string
+type ItemId = string;
 //@Eval Java.from(RegistryHelper.getItems()).flatMap(i => i.getDefaultStack().getTags())
-type ItemTag = string
+type ItemTag = string;
 //@Eval Registries.field_41172.method_10235().toArray().map(id => id.toString())
-type SoundId = string
+type SoundId = string;
 //@Eval Registries.field_41173.method_10235().toArray().map(id => id.toString())
-type FluidId = string
+type FluidId = string;
 //@RegistryHelper getBlockIds
-type BlockId = string
+type BlockId = string;
 //@Eval Java.from(RegistryHelper.getBlocks()).flatMap(b => b.getTags())
-type BlockTag = string
+type BlockTag = string;
 //@Custom
 type EntityId = keyof EntityIdToTypeMap;
-type EntityTypeFromId<E extends EntityId> = EntityIdToTypeMap[CompleteNamespace<E>] extends infer R ?
-  EntityIdToTypeMap[EntityId] extends R ? EntityHelper : R : never;
-type EntityIdToTypeMap = { [id: string]: EntityHelper }
+type EntityTypeFromId<E extends EntityId> = EntityIdToTypeMap[CompleteNamespace<E>] extends infer R
+    ? EntityIdToTypeMap[EntityId] extends R
+        ? EntityHelper
+        : R
+    : never;
+type EntityIdToTypeMap = { [id: string]: EntityHelper };
 //@Eval world.method_8433().method_8126().toArray().map(r => r.toString())
-type RecipeId = string
+type RecipeId = string;
 //@Enum class_1934.method_8381
-type Gamemode = string
+type Gamemode = string;
 //@Eval RegistryManager.method_30530(RegistryKeys.field_41241).method_10235().toArray().map(id => id.toString())
-type Dimension = string
-| string & {}
+type Dimension = string | (string & {});
 
 //@Custom
-type ScreenName = string
-| HandledScreenName
+type ScreenName = string | HandledScreenName;
 
 //@Custom
-type ScreenClass = string
+type ScreenClass = string;
 //@Enum class_1269.toString
-type ActionResult = string
+type ActionResult = string;
 //@Eval const DamageSource = Java.type('net.minecraft.class_1282');const sources = world.method_48963();sources.getClass().getDeclaredFields().filter(f => f.getType().equals(DamageSource)).map(f => {f.setAccessible(true);return f.get(sources)}).filter(s => s && s instanceof DamageSource).map(s => s.method_5525())
-type DamageSource = string
+type DamageSource = string;
 //@RegistryHelper getStatusEffectIds
-type StatusEffectId = string
+type StatusEffectId = string;
 //@Enum class_3619.toString
-type PistonBehaviour = string
+type PistonBehaviour = string;
 //@Enum class_1297$class_5529.toString
-type EntityUnloadReason = string
+type EntityUnloadReason = string;
 //@Enum class_1259$class_1260.name
-type BossBarColor = string
+type BossBarColor = string;
 //@Enum class_1259$class_1261.name
-type BossBarStyle = string
+type BossBarStyle = string;
 //@Enum class_2558$class_2559.name
-type TextClickAction = string
+type TextClickAction = string;
 //@Enum class_2568$class_5247.method_15434
-type TextHoverAction = string
+type TextHoverAction = string;
 //@Enum class_3854.toString
-type VillagerStyle = string
+type VillagerStyle = string;
 //@RegistryHelper getVillagerProfessionIds
-type VillagerProfession = string
-
+type VillagerProfession = string;
 
 //@RegistryHelper getFeatureIds
-type FeatureId = string
+type FeatureId = string;
 //@RegistryHelper getPaintingIds
-type PaintingId = string
+type PaintingId = string;
 //@RegistryHelper getParticleTypeIds
-type ParticleId = string
+type ParticleId = string;
 //@RegistryHelper getStatTypeIds
-type StatTypeId = string
+type StatTypeId = string;
 //@RegistryHelper getRecipeTypeIds
-type RecipeTypeId = string
+type RecipeTypeId = string;
 //@RegistryHelper getSensorTypeIds
-type SensorTypeId = string
+type SensorTypeId = string;
 //@RegistryHelper getPotionTypeIds
-type PotionTypeId = string
+type PotionTypeId = string;
 //@Eval Java.from(Player.getPlayer().getAdvancementManager().getAdvancementsForIdentifiers().keySet().toArray())
-type AdvancementId = string
+type AdvancementId = string;
 //@RegistryHelper getParticleTypeIds
-type ParticleTypeId = string
+type ParticleTypeId = string;
 //@RegistryHelper getVillagerTypeIds
-type VillagerTypeId = string
+type VillagerTypeId = string;
 //@RegistryHelper getActivityTypeIds
-type ActivityTypeId = string
+type ActivityTypeId = string;
 //@RegistryHelper getScreenHandlerIds
-type ScreenHandlerId = string
+type ScreenHandlerId = string;
 //@RegistryHelper getBlockEntityTypeIds
-type BlockEntityTypeId = string
+type BlockEntityTypeId = string;
 //@RegistryHelper getEntityAttributeIds
-type EntityAttributeId = string
+type EntityAttributeId = string;
 //@RegistryHelper getMemoryModuleTypeIds
-type MemoryModuleTypeId = string
+type MemoryModuleTypeId = string;
 //@RegistryHelper getStructureFeatureIds
-type StructureFeatureId = string
+type StructureFeatureId = string;
 //@RegistryHelper getPointOfInterestTypeIds
-type PointOfInterestTypeId = string
+type PointOfInterestTypeId = string;
 //@Eval Client.getMinecraft().method_1526().method_4665().keySet().toArray()
-type Locale = string
+type Locale = string;
 //@Eval Java.from(Client.getGameOptions().control.getCategories())
-type KeyCategory = string
+type KeyCategory = string;
 //@Enum class_3419.method_14840
-type SoundCategory = string
+type SoundCategory = string;
 //@RegistryHelper getGameEventNames
-type GameEventName = string
+type GameEventName = string;
 //@RegistryHelper getEnchantmentIds
-type EnchantmentId = string
+type EnchantmentId = string;
 //@Eval Java.from(RegistryHelper.getEnchantments()).map(e => e.getRarity())
-type EnchantmentRarity = string
+type EnchantmentRarity = string;
 //@Eval Java.from(RegistryHelper.getEnchantments()).map(e => e.getTargetType())
-type EnchantmentTargetType = string
+type EnchantmentTargetType = string;
 //@Eval Java.from(Client.createPacketByteBuffer().getPacketNames())
-type PacketName = string
+type PacketName = string;
 //\@Eval Java.from(World.createParticleAccessor().getParticleNames())
-type ParticleName = string
+type ParticleName = string;
 
 //@Enum class_1767.method_7792
-type DyeColorName = string
+type DyeColorName = string;
 //@Eval const PhaseType = Java.type('net.minecraft.class_1527');const F = PhaseType.class.getDeclaredField('field_7070');F.setAccessible(true);Object.values(PhaseType).filter(f => f instanceof PhaseType).map(p => F.get(p))
-type DragonPhase = string
+type DragonPhase = string;
 //@Eval new Packages.net.minecraft.class_1510(null, world).method_5690().map(p => p.field_7006)
-type DragonBodyPart = string
+type DragonBodyPart = string;
 //@Enum class_5762$class_5767.method_33238
-type AxolotlVariant = string
+type AxolotlVariant = string;
 //@Eval Registries.field_41164.method_10235().toArray().map(id => id.toString())
-type FrogVariant = string
+type FrogVariant = string;
 //@Enum class_1501$class_7993.method_15434
-type LlamaVariant = string
+type LlamaVariant = string;
 //@Enum class_1440$class_1443.method_15434
-type PandaGene = string
+type PandaGene = string;
 //@Enum class_1453$class_7989.method_15434
-type ParrotVariant = string
+type ParrotVariant = string;
 //@Enum class_1463$class_7990.method_15434
-type RabbitVariant = string
+type RabbitVariant = string;
 //@Enum class_1474$class_1475.method_15434
-type TropicalVariant = string
+type TropicalVariant = string;
 //@Enum class_1474$class_7991.name
-type TropicalSize = string
+type TropicalSize = string;
 //@Enum class_1690$class_1692.method_15434
-type BoatType = string
+type BoatType = string;
 //@Enum class_4081.name
-type StatusEffectCategory = string
+type StatusEffectCategory = string;
 //@Enum class_5421.name
-type RecipeBookCategory = string
+type RecipeBookCategory = string;
 //@Eval Java.type('net.minecraft.class_2580').field_11801.flat().map(e => Registries.field_41174.method_10221(e).toString())
-type BeaconStatusEffect = string
+type BeaconStatusEffect = string;
 //@Eval Java.from(Java.type('net.minecraft.class_124').method_540(true, false))
-type FormattingColorName = string
+type FormattingColorName = string;
 //@Enum class_270$class_271.field_1436
-type TeamCollisionRule = string
+type TeamCollisionRule = string;
 //@Enum class_270$class_272.field_1445
-type TeamVisibilityRule = string
+type TeamVisibilityRule = string;

@@ -177,28 +177,28 @@ This config library is designed with the intention of using a single config file
 
 I understand people may not have the same preferences as me for linting, package managers, etc. So I try to be considerate and give people an easy way to go their own way.
 
-By default, none of my tooling is _required_, only recommended. If you choose to compile & bundle scripts in your own way, that's fine! This template is meant to be a base for people to extend off. Nothing in this project requires prettier or pnpm to be functioning (however the GitHub Action may complain or break without pnpm related files, but could be swapped over to npm without much effort).
+By default, none of my tooling is _required_, only recommended. If you choose to compile & bundle scripts in your own way, that's fine! This template is meant to be a base for people to extend off. Nothing in this project requires Biome or pnpm to be functioning (however the GitHub Action may complain or break without pnpm related files, but could be swapped over to npm without much effort).
 
-### Don't like prettier/formatting?
+### Don't like Biome (linting & formatting)?
 
-Remove `./vscode/`, `.editorconfig`, `.prettierrc`, and `.prettierignore`
+Remove `./vscode/` and `biome.jsonc`
 
 ```bash
 # Linux/Unix
-rm -r ./vscode/ .editorconfig .prettierrc .prettierignore
+rm -r ./vscode/ biome.jsonc
 # Windows (cmd)
-del /s /q .vscode\* .editorconfig .prettierrc .prettierignore
+del /s /q .vscode\* biome.jsonc
 # Windows (PowerShell)
-Remove-Item -Recurse -Force .vscode, .editorconfig, .prettierrc, .prettierignore
+Remove-Item -Recurse -Force .vscode, biome.jsonc
 ```
 
-Remove `prettier` from `package.json`
+Remove `@biomejs/biome` from `package.json`
 
 ```bash
-pnpm remove prettier
+pnpm remove @biomejs/biome
 ```
 
-Remove the prettier section from the `lint` script inside `package.json`
+Remove the `&& biome check .` section from the `lint` script inside `package.json`
 
 ### Don't like pnpm?
 

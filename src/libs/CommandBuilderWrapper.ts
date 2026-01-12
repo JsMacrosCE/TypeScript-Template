@@ -1,7 +1,8 @@
-const CommandBuilder = Packages.xyz.wagyourtail.jsmacros.client.api.classes.inventory.CommandBuilder;
-const BlockPosHelper = Packages.xyz.wagyourtail.jsmacros.client.api.helpers.world.BlockPosHelper;
+// These are declared at the root in JsMacros.d.ts so we don't need to specify it here
+// const CommandBuilder = Packages.xyz.wagyourtail.jsmacros.client.api.classes.inventory.CommandBuilder;
+// const BlockPosHelper = Packages.xyz.wagyourtail.jsmacros.client.api.helpers.world.BlockPosHelper;
 
-type Command = {
+export type Command = {
     literalArg?: string;
     booleanArg?: string;
     intArg?: string | { name: string; min: int; max: int };

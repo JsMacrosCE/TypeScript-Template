@@ -1,5 +1,5 @@
-import * as path from 'path';
-import { fileURLToPath } from 'url';
+import * as path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { glob } from 'glob';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -9,7 +9,7 @@ const mainTsFiles = glob.sync('./src/**/main.ts').map((filePath) => path.posix.n
 
 const entry = mainTsFiles.reduce((acc, filePath) => {
     const entryName = path.basename(path.dirname(filePath));
-    acc[entryName] = './' + filePath;
+    acc[entryName] = `./${filePath}`;
     return acc;
 }, {});
 

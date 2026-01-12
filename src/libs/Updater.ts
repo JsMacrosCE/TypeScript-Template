@@ -1,6 +1,6 @@
-import { Endpoints } from '@octokit/types';
-import Config from './Config';
+import type { Endpoints } from '@octokit/types';
 import ChatHelper from './ChatHelper';
+import Config from './Config';
 
 const CONFIG_ID = 'updater';
 
@@ -25,7 +25,6 @@ function getMetadata(release: GetReleasesResponse) {
     return JSON.parse(req.text());
 }
 
-// Returns whether the script was updated
 export function updateScript(path: string, repo: string, configPath: string): boolean {
     const scriptFile = path.split('\\').pop();
     const scriptName = scriptFile.split('.')[0];
