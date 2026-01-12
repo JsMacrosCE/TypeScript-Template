@@ -18,7 +18,7 @@ function getMetadata(release: GetReleasesResponse) {
     const metadataAsset = release.assets.find((asset) => asset.name === 'metadata.json');
     if (!metadataAsset) return;
 
-    const metadataUrl = release.assets[1].browser_download_url;
+    const metadataUrl = metadataAsset.browser_download_url;
     const req = Request.get(metadataUrl);
     if (req.responseCode !== 200) return;
 
@@ -26,11 +26,11 @@ function getMetadata(release: GetReleasesResponse) {
 }
 
 export function updateScript(path: string, repo: string, configPath: string): boolean {
-    const scriptFile = path.split('\\').pop();
+    const scriptFile = path.split(/[/\\]/).pop();
     const scriptName = scriptFile.split('.')[0];
     const latestRelease = getLatestReleaseInfo(repo);
     if (!latestRelease) {
-        ChatHelper.error('[Updater] Failed to get latest release info');
+        ChatHelper.error(`[Updater] Failed to get latest release info for '${repo}'`);
         return false;
     }
 
@@ -40,7 +40,7 @@ export function updateScript(path: string, repo: string, configPath: string): bo
         return false;
     }
     if (!metadata[scriptName]) {
-        ChatHelper.error('[Updater] Metadata does not contain script info');
+        ChatHelper.warn(`[Updater] Metadata does not contain script info for '${scriptName}'`);
         return false;
     }
     const latestVersion = metadata[scriptName].version;
@@ -59,13 +59,13 @@ export function updateScript(path: string, repo: string, configPath: string): bo
 
     const asset = latestRelease.assets.find((asset) => asset.name === scriptFile);
     if (!asset) {
-        ChatHelper.error('[Updater] Failed to find script asset');
+        ChatHelper.error(`[Updater] Failed to find script asset for '${scriptFile}'`);
         return false;
     }
 
     const req = Request.get(asset.browser_download_url);
     if (req.responseCode !== 200) {
-        ChatHelper.error('[Updater] Failed to download the latest version');
+        ChatHelper.error(`[Updater] Failed to download the latest version for '${scriptFile}'`);
         return false;
     }
 
