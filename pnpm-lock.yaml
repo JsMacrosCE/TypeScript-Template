@@ -13,7 +13,7 @@ importers:
         version: 4.17.21
     devDependencies:
       '@biomejs/biome':
-        specifier: ^2.3.11
+        specifier: 2.3.11
         version: 2.3.11
       '@octokit/rest':
         specifier: ^21.1.1
